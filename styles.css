@@ -1,0 +1,77 @@
+/* paletton.com  12R0u0kllllaFw0g0qFqFg0w0aF */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #29302a;
+    font-family: "Arial Black";
+}
+
+a, a:link, a:visited {
+    color: black;
+    text-decoration: none;
+}
+a:hover, a:active {
+    color: #004208;
+}
+    
+
+/* IDs - Used for one item */
+
+
+/* The two main sections */
+div#headstyle {
+    background-color: #2C8437;
+    margin-bottom: 35pt;
+    margin-left: 20pt;
+    margin-right: 20pt;
+}
+
+div#mainbody {
+    margin-left: 20pt;
+    margin-right: 20pt;
+}
+
+/* Header Stuff */ 
+h1#topothepage, h3#topothepage {
+    color: white;
+    text-align: center;
+}
+
+/* Top Navigation Bar */
+table#navbar {
+    color: black;
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #84C68C;
+}
+
+/* Left Side of the Page*/
+aside#sidebar {
+    width: 15%;
+    height: 100%;
+    float: left;
+    background-color: #52A55C;
+}
+
+/* Right Side of the Page */ 
+div#sidebody {
+    width: 80%;
+    height: 100%;
+    float: right;
+    background-color: #84C68C;
+    font-size: 10pt;
+}
+
+
+/* Classes - Used for multiple items */
+td.navitem {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 33%;
+    font-size: 20pt;
+}
+
