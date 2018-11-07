@@ -25,8 +25,8 @@ class SiteEdit:
     ## Functions will allow for editing.
     ## f - filename
     ##
-    def __init__(self,f):
-        self.filename = f
+    def __init__(self):
+        self.filename = ""
         self.post_title = ""
         self.post_body = ""
         
@@ -34,16 +34,22 @@ class SiteEdit:
     ## Will gather, format, and update the html document provided
     ## with a new blog post.
     def addPost(self):
+        check = ""
         block = self.getPost()
         
-        with open(self.filename,"r") as f_old, open(self.filename+"~","w") as f_new:
-            for line in f_old:
-                f_new.write(line)
-                if "<div id=sidebody>" in line:
-                    f_new.write(block)
-        os.remove(self.filename)
-        os.rename(self.filename+"~",self.filename)
+        if self.filename == "coilgun.html":
+            check = "<div id=sidebody>"
         
+        if check != "":
+            with open(self.filename,"r") as f_old, open(self.filename+"~","w") as f_new:
+                for line in f_old:
+                    f_new.write(line)
+                    if check in line:
+                        f_new.write(block)
+            os.remove(self.filename)
+            os.rename(self.filename+"~",self.filename)
+        else:
+            print("Filename was invalid")
         
     ## Do not call on it's own, it will be called
     ## from functions.
@@ -57,6 +63,7 @@ class SiteEdit:
     ## Will return an html formatted piece of code with the body
     ## and title of the blog post.
     def getPost(self):
+        self.filename = input("Full filename to change: ")
         self.post_title = input("Enter post title: ")
         self.post_body = input("Enter post body: ")
         
@@ -68,7 +75,7 @@ class SiteEdit:
     
     
 if __name__ == "__main__":
-    meme = SiteEdit("coilgun.html")
+    meme = SiteEdit()
     meme.addPost()
 
     
