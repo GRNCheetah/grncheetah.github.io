@@ -30,7 +30,29 @@ class SiteEdit:
         self.post_title = ""
         self.post_body = ""
         
+    
+    def main(self):
+    
+        choice = 0
+        loop_flag = True
+
+        print("Welcome to SiteEdit")
+        print("Created by GRNCheetah")
         
+        while (loop_flag):
+            
+            print("\nWhat would you like to do?")
+            print("\t1) Add blog post")
+            print("\t0) Exit\n")
+            choice = input("--> ")
+            
+            if choice == "1":
+                self.addPost()
+            else:
+                print("Goodbye!")
+                loop_flag = False
+                
+    
     ## Will gather, format, and update the html document provided
     ## with a new blog post.
     def addPost(self):
@@ -48,8 +70,10 @@ class SiteEdit:
                         f_new.write(block)
             os.remove(self.filename)
             os.rename(self.filename+"~",self.filename)
+            print("[+] File successfully updated!")
+            
         else:
-            print("Filename was invalid")
+            print("[-]Filename was invalid")
         
     ## Do not call on it's own, it will be called
     ## from functions.
@@ -64,6 +88,10 @@ class SiteEdit:
     ## and title of the blog post.
     def getPost(self):
         self.filename = input("Full filename to change: ")
+        # Make sure the file is good before failing later
+        while (not(os.path.isfile(self.filename))):
+            print("[-]Filename was invalid")
+            self.filename = input("Try again: ")
         self.post_title = input("Enter post title: ")
         self.post_body = input("Enter post body: ")
         
@@ -75,8 +103,8 @@ class SiteEdit:
     
     
 if __name__ == "__main__":
-    meme = SiteEdit()
-    meme.addPost()
+    site = SiteEdit()
+    site.main()
 
     
     
