@@ -1,24 +1,6 @@
 import os
 import datetime
 
-f_name = "coilgun.html"
-
-#block = """\t\t\t\t<h3>11/07/18 - Burnt Out The Thyristor</h3>
-#\t\t\t\t<p>Kinda sucks, but I still have 3 more</p>
-#"""
-#
-#
-#
-#with open(f_name,"r") as f_old, open(f_name+"~","w") as f_new:
-#    for line in f_old:
-#        f_new.write(line)
-#        if "<!-- INSERT -->" in line:
-#            f_new.write(block)
-#            
-#os.remove(f_name)
-#os.rename(f_name+"~",f_name)
-
-
 class SiteEdit:
         
     ## Initialize with the site you want to edit.
@@ -30,7 +12,7 @@ class SiteEdit:
         self.post_title = ""
         self.post_body = ""
         
-    
+    ## Main menu, needs to run in the beginning    
     def main(self):
     
         choice = 0
